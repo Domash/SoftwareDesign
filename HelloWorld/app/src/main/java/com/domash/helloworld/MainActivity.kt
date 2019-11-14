@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             requestPermissions(arrayOf(Manifest.permission.READ_PHONE_STATE), PERMISSION_READ_PHONE_STATE)
         }
-        
+
         content += "\nVersion: " + BuildConfig.VERSION_NAME
         textView.text = content
 
