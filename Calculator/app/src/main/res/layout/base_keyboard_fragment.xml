@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:configChanges="orientation|screenSize"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:rowCount="5"
+    android:columnCount="4"
+    android:id="@+id/base_grid_l">
+
+    <Button
+        android:id="@+id/clear_button"
+        android:text="CL"
+        style="@style/Button_Op"
+        />
+
+    <Button
+        android:id="@+id/open_br"
+        android:text="("
+        style="@style/Button_Op"
+        />
+
+    <Button
+        android:id="@+id/close_br"
+        android:text=")"
+        style="@style/Button_Op"
+        />
+
+    <Button
+        android:id="@+id/div_op"
+        android:text="/"
+        style="@style/Button_Grad"
+        />
+
+    <Button
+        android:id="@+id/num_b_7"
+        android:text="7"
+        style="@style/Button"
+        />
+
+    <Button
+        android:id="@+id/num_b_8"
+        android:text="8"
+        style="@style/Button"
+        />
+
+    <Button
+        android:id="@+id/num_b_9"
+        android:text="9"
+        style="@style/Button"
+        />
+
+    <Button
+        android:id="@+id/mul_op"
+        android:text="*"
+        style="@style/Button_Grad"
+        />
+
+    <Button
+        android:id="@+id/num_b_4"
+        android:text="4"
+        style="@style/Button"
+        />
+
+    <Button
+        android:id="@+id/num_b_5"
+        android:text="5"
+        style="@style/Button"
+        />
+
+    <Button
+        android:id="@+id/num_b_6"
+        android:text="6"
+        style="@style/Button"
+        />
+
+    <Button
+        android:id="@+id/sub_op"
+        android:text="-"
+        style="@style/Button_Grad"/>
+
+    <Button
+        android:id="@+id/num_b_1"
+        android:text="1"
+        style="@style/Button"
+        />
+
+    <Button
+        android:id="@+id/num_b_2"
+        android:text="2"
+        style="@style/Button"
+        />
+
+    <Button
+        android:id="@+id/num_b_3"
+        android:text="3"
+        style="@style/Button"
+        />
+
+    <Button
+        android:id="@+id/add_op"
+        android:text="+"
+        style="@style/Button_Grad"
+        />
+
+    <Button
+        android:id="@+id/dot_b"
+        android:text="."
+        style="@style/Button"
+        />
+
+    <Button
+        android:id="@+id/num_b_0"
+        android:text="0"
+        style="@style/Button"
+        />
+
+    <Button
+        android:id="@+id/back_op"
+        android:text="Back"
+        style="@style/Button"
+        />
+
+    <Button
+        android:id="@+id/res_op"
+        android:text="="
+        style="@style/Button_Grad"
+        />
+
+
+
+
+
+</GridLayout>
