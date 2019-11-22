@@ -15,5 +15,4 @@
         android:startColor="@color/colorMaterialDarkGrey"
         android:endColor="@color/colorBluePrimary"
         />
-    <padding android:left="5dp"/>
 </shape>

@@ -2,7 +2,7 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:configChanges="orientation|screenSize"
     android:layout_width="match_parent"
-    android:background="@color/colorGreen"
+    android:background="@color/colorBluePrimary"
     android:layout_height="match_parent"
     android:rowCount="5"
     android:columnCount="3"
@@ -10,74 +10,74 @@
 
     <Button
         android:id="@+id/but_sin"
-        android:text="Sin"
-        style="@style/Button_Science"
+        android:text="sin"
+        style="@style/Button.Science"
         />
 
     <Button
         android:id="@+id/but_cos"
-        android:text="Cos"
-        style="@style/Button_Science"
+        android:text="cos"
+        style="@style/Button.Science"
         />
 
     <Button
         android:id="@+id/but_tan"
-        android:text="Tan"
-        style="@style/Button_Science"
+        android:text="tan"
+        style="@style/Button.Science"
         />
 
     <Button
         android:id="@+id/but_pi"
-        android:text="Pi"
-        style="@style/Button_Science"
+        android:text="pi"
+        style="@style/Button.Science"
         />
 
     <Button
         android:id="@+id/but_ctg"
-        android:text="CTG"
-        style="@style/Button_Science"
+        android:text="ctg"
+        style="@style/Button.Science"
         />
 
     <Button
         android:id="@+id/but_e"
-        android:text="E"
-        style="@style/Button_Science"
+        android:text="e"
+        style="@style/Button.Science"
         />
 
     <Button
         android:id="@+id/but_sqrt"
-        android:text="√"
-        style="@style/Button_Science"
+        android:text="sqrt"
+        style="@style/Button.Science"
         />
 
     <Button
         android:id="@+id/but_mod"
         android:text="%"
-        style="@style/Button_Science"
+        style="@style/Button.Science"
         />
 
     <Button
-        android:id="@+id/but_log"
-        android:text="LOG"
-        style="@style/Button_Science"
+        android:id="@+id/but_x_n"
+        android:text="^"
+        style="@style/Button.Science"
         />
 
     <Button
-        android:id="@+id/but_x_2"
-        android:text="X^2"
-        style="@style/Button_Science"
+        android:id="@+id/but_ln"
+        android:text="ln"
+        style="@style/Button.Science"
         />
 
     <Button
-        android:id="@+id/but_x_3"
-        android:text="X^3"
-        style="@style/Button_Science"
+        android:id="@+id/but_log_2"
+        android:text="log2"
+        style="@style/Button.Science"
         />
 
     <Button
-        android:id="@+id/but_1_div_x"
-        android:text="1/x"
-        style="@style/Button_Science"
+        android:id="@+id/but_log_10"
+        android:text="log10"
+        style="@style/Button.Science"
         />
 
 

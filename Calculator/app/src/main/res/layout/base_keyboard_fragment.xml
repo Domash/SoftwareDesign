@@ -5,30 +5,31 @@
     android:layout_height="match_parent"
     android:rowCount="5"
     android:columnCount="4"
+    android:background="@color/colorMaterialDarkGrey"
     android:id="@+id/base_grid_l">
 
     <Button
         android:id="@+id/clear_button"
         android:text="CL"
-        style="@style/Button_Op"
+        style="@style/Button.Op"
         />
 
     <Button
         android:id="@+id/open_br"
         android:text="("
-        style="@style/Button_Op"
+        style="@style/Button.Op"
         />
 
     <Button
         android:id="@+id/close_br"
         android:text=")"
-        style="@style/Button_Op"
+        style="@style/Button.Op"
         />
 
     <Button
         android:id="@+id/div_op"
         android:text="/"
-        style="@style/Button_Grad"
+        style="@style/Button.Grad"
         />
 
     <Button
@@ -52,7 +53,7 @@
     <Button
         android:id="@+id/mul_op"
         android:text="*"
-        style="@style/Button_Grad"
+        style="@style/Button.Grad"
         />
 
     <Button
@@ -76,7 +77,7 @@
     <Button
         android:id="@+id/sub_op"
         android:text="-"
-        style="@style/Button_Grad"/>
+        style="@style/Button.Grad"/>
 
     <Button
         android:id="@+id/num_b_1"
@@ -99,7 +100,7 @@
     <Button
         android:id="@+id/add_op"
         android:text="+"
-        style="@style/Button_Grad"
+        style="@style/Button.Grad"
         />
 
     <Button
@@ -115,19 +116,15 @@
         />
 
     <Button
-        android:id="@+id/back_op"
-        android:text="Back"
+        android:id="@+id/del_op"
+        android:text="DEL"
         style="@style/Button"
         />
 
     <Button
         android:id="@+id/res_op"
         android:text="="
-        style="@style/Button_Grad"
+        style="@style/Button.Grad"
         />
-
-
-
-
 
 </GridLayout>

@@ -4,19 +4,27 @@ import android.content.Context
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.view.View
 import androidx.viewpager.widget.ViewPager
 import android.view.WindowManager
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import org.jetbrains.annotations.NotNull
 import com.domash.calculator.Fragments.BaseKeyboardFragment
 import com.domash.calculator.Fragments.ScienceKeyboardFragment
-import kotlinx.android.synthetic.main.activity_main.*
 import org.mariuszgromada.math.mxparser.Expression
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
+    companion object {
+        val functions = listOf("sin", "cos", "tan", "ctg", "ln", "log2", "log10", "sqrt")
+    }
+
+    private lateinit var textExpression: TextView
     private lateinit var keyboardViewPager: ViewPager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +37,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             "paid" -> onCreatePaidVersion()
         }
 
+        textExpression = findViewById(R.id.expression)
+        textExpression.movementMethod = ScrollingMovementMethod()
+
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("expression_text", textExpression.text.toString())
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        textExpression.text = savedInstanceState.getString("expression_text")
     }
 
     private fun onCreateFreeVersion() {
@@ -61,9 +82,42 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     @NotNull
     override fun onClick(v: View) {
 
-        val expr = Expression("10 * 10")
-        expression.text = expr.calculate().toString()
+        when(v.id) {
+            R.id.res_op -> onSolve()
+            R.id.del_op -> onDelete(1)
+            R.id.clear_button -> onDelete(textExpression.text.length)
+            else -> onAppend((v as Button).text.toString())
+        }
 
+    }
+
+    private fun onSolve() {
+        if(textExpression.text.isNotEmpty()) {
+
+            val expr = Expression(textExpression.text.toString())
+
+            if(expr.checkSyntax()) {
+                textExpression.text = expr.calculate().toString()
+            } else {
+                Log.i("Syntax error", expr.errorMessage)
+                Toast.makeText(baseContext, "Bad expression, try again!", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+    }
+
+    private fun onDelete(n: Int) {
+        if(textExpression.text.isNotEmpty()) {
+            textExpression.text = textExpression.text.dropLast(n)
+        }
+    }
+
+    private fun onAppend(operation: String) {
+        if(functions.contains(operation)) {
+            textExpression.append("$operation(")
+        } else {
+            textExpression.append(operation)
+        }
     }
 
 }
