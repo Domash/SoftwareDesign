@@ -53,10 +53,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun onCreateFreeVersion() {
-
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.add(R.id.base_frame, BaseKeyboardFragment()).commit()
-
     }
 
     private fun onCreatePaidVersion() {
@@ -81,17 +79,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     @NotNull
     override fun onClick(v: View) {
-
         when(v.id) {
             R.id.res_op -> onSolve()
             R.id.del_op -> onDelete(1)
             R.id.clear_button -> onDelete(textExpression.text.length)
             else -> onAppend((v as Button).text.toString())
         }
-
     }
 
     private fun onSolve() {
+
         if(textExpression.text.isNotEmpty()) {
 
             val expr = Expression(textExpression.text.toString())
@@ -104,6 +101,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
 
         }
+
     }
 
     private fun onDelete(n: Int) {
