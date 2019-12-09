@@ -2,13 +2,13 @@ package com.domash.notes
 
 import android.content.res.Configuration
 import android.os.Bundle
-import android.widget.GridLayout
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.bottomappbar.BottomAppBar
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,8 +34,14 @@ class MainActivity : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = NoteAdapter()
 
-       // val bottomBar: BottomAppBar = findViewById(R.id.bottom_app_bar)
-       // setSupportActionBar(bottomBar)
+        val fab: FloatingActionButton = findViewById(R.id.fab)
+
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) = when {
+                dy > 0 -> fab.hide()
+                else -> fab.show()
+            }
+        })
 
     }
 }
