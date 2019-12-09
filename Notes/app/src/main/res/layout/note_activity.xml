@@ -26,18 +26,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <co.lujun.androidtagview.TagContainerLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="0dp"
-            android:padding="10dp"
-            android:id="@+id/tags"
-            app:container_enable_drag="false"
-            app:horizontal_interval="10dp"
-            app:vertical_interval="10dp"
-            app:tag_clickable="true"
-            app:tag_theme="pure_teal" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
