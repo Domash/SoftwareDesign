@@ -1,7 +1,8 @@
-package com.domash.notes
+package com.domash.notes.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.domash.notes.R
 
 class NoteActivity : AppCompatActivity() {
 

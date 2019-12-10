@@ -1,10 +1,11 @@
-package com.domash.notes.database
+package com.domash.notes.databases
+
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.domash.notes.Models.Note
+import com.domash.notes.models.Note
 import com.domash.notes.NoteDAO
 
 @Database(entities = [Note::class], version = 1)

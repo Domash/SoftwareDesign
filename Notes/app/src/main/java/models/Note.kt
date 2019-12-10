@@ -1,4 +1,4 @@
-package com.domash.notes.Models
+package com.domash.notes.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

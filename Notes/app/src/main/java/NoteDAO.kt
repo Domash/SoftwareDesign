@@ -1,7 +1,7 @@
 package com.domash.notes
 
 import androidx.room.*
-import com.domash.notes.Models.Note
+import com.domash.notes.models.Note
 
 @Dao
 interface NoteDAO {

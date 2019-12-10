@@ -1,4 +1,4 @@
-package com.domash.notes
+package com.domash.notes.activities
 
 import android.content.Intent
 import android.content.res.Configuration
@@ -7,8 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.domash.notes.R
+import com.domash.notes.adapters.NoteAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.domash.notes.NoteActivity as NoteActivity1
 
 
 class MainActivity : AppCompatActivity() {
@@ -33,12 +34,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         recyclerView.setHasFixedSize(true)
-        recyclerView.adapter = NoteAdapter()
+        recyclerView.adapter = NoteAdapter(this)
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
 
         fab.setOnClickListener {
-            val intent = Intent(applicationContext, NoteActivity1::class.java)
+            val intent = Intent(applicationContext, NoteActivity::class.java)
             startActivity(intent)
         }
 

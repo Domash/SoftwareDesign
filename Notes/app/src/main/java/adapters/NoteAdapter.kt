@@ -1,21 +1,17 @@
-package com.domash.notes
+package com.domash.notes.adapters
 
 import android.content.Context
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
-import android.widget.LinearLayout
-import com.domash.notes.Models.Note
+import com.domash.notes.models.Note
+import com.domash.notes.R
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 
-
-class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteHolder>() {
-
-    private lateinit var context: Context
+class NoteAdapter(private val context: Context) : RecyclerView.Adapter<NoteAdapter.NoteHolder>() {
 
     private val notes = listOf<Note>(
             Note(1, "aaa", "fdkfjkdk", listOf("1", "11", "111", "23232323")),
@@ -35,26 +31,12 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteHolder>() {
     )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteHolder {
-
-        context = parent.context
-
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.note_item, parent, false)
         return NoteHolder(view)
-
     }
 
     override fun onBindViewHolder(holder: NoteHolder, position: Int) {
-
-        holder.titleTextView.text = notes[position].title
-        holder.bodyTextView.text  = notes[position].body
-
-        holder.chipGroup.removeAllViews()
-        notes[position].tags.forEach { tag ->
-            val chip = Chip(context)
-            chip.text = tag
-            holder.chipGroup.addView(chip)
-        }
-
+        holder.bind(notes[position], context)
     }
 
     override fun getItemCount(): Int {
@@ -63,9 +45,9 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteHolder>() {
 
     class NoteHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        internal val titleTextView: TextView
-        internal val bodyTextView:  TextView
-        internal val chipGroup:     ChipGroup
+        private val titleTextView: TextView
+        private val bodyTextView:  TextView
+        private val chipGroup:     ChipGroup
 
         init {
 
@@ -75,6 +57,21 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteHolder>() {
 
         }
 
+        internal fun bind(note: Note, context: Context) {
+
+            titleTextView.text = note.title
+            bodyTextView.text  = note.body
+
+            chipGroup.removeAllViews()
+            note.tags.forEach { tag ->
+                val chip = Chip(context)
+                chip.text = tag
+                chipGroup.addView(chip)
+            }
+
+        }
+
     }
 
 }
+
