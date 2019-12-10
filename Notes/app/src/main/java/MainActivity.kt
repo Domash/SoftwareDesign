@@ -1,5 +1,6 @@
 package com.domash.notes
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-
+import com.domash.notes.NoteActivity as NoteActivity1
 
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +36,11 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = NoteAdapter()
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
+
+        fab.setOnClickListener {
+            val intent = Intent(applicationContext, NoteActivity1::class.java)
+            startActivity(intent)
+        }
 
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) = when {

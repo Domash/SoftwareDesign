@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="8dp"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -14,7 +14,7 @@
 
         <TextView
             android:id="@+id/title_text"
-            android:text="fkldfkldkfl"
+            android:text=""
             android:textSize="24dp"
             android:textColor="@color/design_default_color_on_secondary"
             android:layout_width="wrap_content"
@@ -22,10 +22,22 @@
 
         <TextView
             android:id="@+id/body_text"
-            android:text="fkds;lkfl;skdf;l"
+            android:text=""
             android:textSize="16dp"
+            android:layout_marginBottom="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
+        <HorizontalScrollView
+            android:scrollbars="none"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group"
+                app:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </HorizontalScrollView>
 
     </LinearLayout>
 
