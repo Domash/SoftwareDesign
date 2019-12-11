@@ -12,6 +12,8 @@ import com.domash.notes.adapters.NoteAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
+// need OnClickListener
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
