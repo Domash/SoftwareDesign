@@ -1,17 +1,24 @@
 package com.domash.notes.adapters
 
-import android.content.Context
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
-import com.domash.notes.models.Note
 import com.domash.notes.R
+import com.domash.notes.models.Note
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 
-class NoteAdapter(private val context: Context) : RecyclerView.Adapter<NoteAdapter.NoteHolder>() {
+
+class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteHolder>() {
+
+    companion object {
+        private const val TAG = "NoteAdapter"
+    }
+
+    private lateinit var listener: OnNoteListener
 
     private val notes = listOf<Note>(
             Note(1, "aaa", "fdkfjkdk", listOf("1", "11", "111", "23232323")),
@@ -36,41 +43,51 @@ class NoteAdapter(private val context: Context) : RecyclerView.Adapter<NoteAdapt
     }
 
     override fun onBindViewHolder(holder: NoteHolder, position: Int) {
-        holder.bind(notes[position], context)
+        holder.bind(notes[position])
     }
 
     override fun getItemCount(): Int {
         return notes.size
     }
 
-    class NoteHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class NoteHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        private val titleTextView: TextView
-        private val bodyTextView:  TextView
-        private val chipGroup:     ChipGroup
+        private val titleTextView: TextView = view.findViewById(R.id.title_text)
+        private val bodyTextView: TextView  = view.findViewById(R.id.body_text)
+        private val chipGroup: ChipGroup = view.findViewById(R.id.chip_group)
 
         init {
-
-            titleTextView = view.findViewById(R.id.title_text)
-            bodyTextView  = view.findViewById(R.id.body_text)
-            chipGroup     = view.findViewById(R.id.chip_group)
-
+            view.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    listener.onNoteClick((notes[position]))
+                    Log.d(TAG, "OnClick $adapterPosition")
+                }
+            }
         }
 
-        internal fun bind(note: Note, context: Context) {
+        internal fun bind(note: Note) {
 
             titleTextView.text = note.title
             bodyTextView.text  = note.body
 
             chipGroup.removeAllViews()
             note.tags.forEach { tag ->
-                val chip = Chip(context)
+                val chip = Chip(chipGroup.context)
                 chip.text = tag
                 chipGroup.addView(chip)
             }
 
         }
 
+    }
+
+    interface OnNoteListener {
+        fun onNoteClick(note: Note)
+    }
+
+    fun setNoteListener(listener: OnNoteListener) {
+        this.listener = listener
     }
 
 }
