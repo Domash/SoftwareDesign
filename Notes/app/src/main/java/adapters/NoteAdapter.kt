@@ -20,22 +20,7 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteHolder>() {
 
     private lateinit var listener: OnNoteListener
 
-    private val notes = listOf<Note>(
-            Note(1, "aaa", "fdkfjkdk", listOf("1", "11", "111", "23232323")),
-            Note(2, "fjdk", "fdkfjkdk", listOf("2")),
-            Note(3, "fjdk", "fdkfjkdk", listOf("3")),
-            Note(4, "fjdk", "fdkfjkdk", listOf("4")),
-            Note(5, "fjdk", "fdkfjkdk", listOf("5")),
-            Note(6, "fjdk", "fdkfjkdk", listOf("6")),
-            Note(7, "fjdk", "fdkfjkdk", listOf("7")),
-            Note(8, "fjdk", "fdkfjkdk", listOf("8")),
-            Note(9, "fjdk", "fdkfjkdk", listOf("9")),
-            Note(10, "fjdk", "fdkfjkdk", listOf("10")),
-            Note(11, "fjdk", "fdkfjkdk", listOf("11")),
-            Note(12, "fjdk", "fdkfjkdk", listOf("12")),
-            Note(13, "fjdk", "fdkfjkdk", listOf("13")),
-            Note(14, "fjdk", "fdkfjkdk", listOf("14"))
-    )
+    private lateinit var notes: List<Note>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.note_item, parent, false)
@@ -44,6 +29,10 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteHolder>() {
 
     override fun onBindViewHolder(holder: NoteHolder, position: Int) {
         holder.bind(notes[position])
+    }
+
+    fun setNotes(notes: List<Note>) {
+        this.notes = notes
     }
 
     override fun getItemCount(): Int {

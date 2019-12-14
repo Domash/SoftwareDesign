@@ -11,6 +11,12 @@ class NoteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.note_activity)
 
+        if(intent.hasExtra("ID")) {
+
+
+
+        }
+
     }
 
 }

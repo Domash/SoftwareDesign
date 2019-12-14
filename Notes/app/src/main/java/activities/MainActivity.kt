@@ -14,6 +14,23 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
+    private var notes = listOf<Note>(
+            Note(1, "aaa", "fdkfjkdk", listOf("1", "11", "111", "23232323")),
+            Note(2, "fjdk", "fdkfjkdk", listOf("2")),
+            Note(3, "fjdk", "fdkfjkdk", listOf("3")),
+            Note(4, "fjdk", "fdkfjkdk", listOf("4")),
+            Note(5, "fjdk", "fdkfjkdk", listOf("5")),
+            Note(6, "fjdk", "fdkfjkdk", listOf("6")),
+            Note(7, "fjdk", "fdkfjkdk", listOf("7")),
+            Note(8, "fjdk", "fdkfjkdk", listOf("8")),
+            Note(9, "fjdk", "fdkfjkdk", listOf("9")),
+            Note(10, "fjdk", "fdkfjkdk", listOf("10")),
+            Note(11, "fjdk", "fdkfjkdk", listOf("11")),
+            Note(12, "fjdk", "fdkfjkdk", listOf("12")),
+            Note(13, "fjdk", "fdkfjkdk", listOf("13")),
+            Note(14, "fjdk", "fdkfjkdk", listOf("14"))
+    )
+
     private val noteAdapter = NoteAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +59,8 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         })
+
+        noteAdapter.setNotes(notes)
 
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = noteAdapter
