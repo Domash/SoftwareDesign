@@ -9,22 +9,21 @@ import com.domash.notes.models.Note
 class NoteViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: NoteRepository = NoteRepository(application)
-    private val notes: List<Note> = TODO()
 
     fun insert(note: Note) {
-        TODO()
+        repository.insert(note)
     }
 
     fun update(note: Note) {
-        TODO()
+        repository.update(note)
     }
 
     fun delete(note: Note) {
-        TODO()
+        repository.delete(note)
     }
 
     fun getNotes() : LiveData<List<Note>> {
-        TODO()
+        return repository.getNotes()
     }
 
 

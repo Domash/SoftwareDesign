@@ -1,5 +1,6 @@
 package com.domash.notes
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.domash.notes.models.Note
 
@@ -16,6 +17,6 @@ interface NoteDAO {
     fun deleteNote(note: Note)
 
     @Query("SELECT * FROM Notes")
-    fun getNotes() : List<Note>
+    fun getNotes() : LiveData<List<Note>>
 
 }

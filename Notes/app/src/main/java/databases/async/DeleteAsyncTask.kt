@@ -4,8 +4,8 @@ import android.os.AsyncTask
 import com.domash.notes.models.Note
 import com.domash.notes.NoteDAO
 
-class DeleteAsyncTask private constructor(
-        private val noteDao: NoteDAO
+class DeleteAsyncTask constructor(
+    private val noteDao: NoteDAO
 ) : AsyncTask<Note, Void, Void>() {
 
     override fun doInBackground(vararg notes: Note): Void? {
