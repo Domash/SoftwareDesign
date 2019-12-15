@@ -26,7 +26,4 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
         return repository.getNotes()
     }
 
-
-
-
 }
