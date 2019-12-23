@@ -17,10 +17,8 @@ class NetworkReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
 
-        val networkStatus = getStatus(context)
         val networkStatusStr = getStatusString(context)
-
-        Toast.makeText(context, networkStatusStr, Toast.LENGTH_LONG).show();
+        Toast.makeText(context, networkStatusStr, Toast.LENGTH_LONG).show()
 
     }
 

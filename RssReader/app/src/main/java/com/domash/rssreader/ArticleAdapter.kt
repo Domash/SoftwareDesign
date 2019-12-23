@@ -1,10 +1,12 @@
 package com.domash.rssreader
 
+import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebChromeClient
 import android.webkit.WebView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.prof.rssparser.Article
 import com.squareup.picasso.Picasso
@@ -17,6 +19,7 @@ class ArticleAdapter(val articles: MutableList<Article>) : RecyclerView.Adapter<
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.article_item, parent, false)
         return ArticleHolder(view)
     }
+
 
     override fun getItemCount(): Int {
         return articles.size
@@ -36,22 +39,28 @@ class ArticleAdapter(val articles: MutableList<Article>) : RecyclerView.Adapter<
                    .into(itemView.image)
 
             itemView.title.text = article.title
-            itemView.pubDate.text = article.pubDate.toString()
-            itemView.categories.text = article.categories.joinToString(separator = ",")
+            itemView.pubDate.text = article.pubDate.toString().substring(0, article.pubDate.toString().length - 5)
+            itemView.categories.text = article.categories.joinToString(separator = ", ")
 
             itemView.setOnClickListener {
 
-                val articleWebView = WebView(itemView.context)
+                val articleView = WebView(itemView.context)
+                articleView.settings.loadWithOverviewMode = true
+                articleView.settings.javaScriptEnabled = true
+                articleView.isHorizontalScrollBarEnabled = false
+                articleView.webChromeClient = WebChromeClient()
+                articleView.loadDataWithBaseURL(
+                    null, "<style>img{display: inline; height: auto; max-width: 100%;} " +
+                        "</style>\n" + "<style>iframe{ height: auto; width: auto;}" + "</style>\n" + article.content, null, "utf-8", null)
 
-                articleWebView.settings.loadWithOverviewMode = true
-                articleWebView.settings.javaScriptEnabled = true
-                articleWebView.webChromeClient = WebChromeClient()
-                //articleWebView.loadUrl(article.content)
-
-                articleWebView.loadUrl("http://www.hkmytravel.com")
-
-
-
+                val alertDialog = androidx.appcompat.app.AlertDialog.Builder(itemView.context).create()
+                alertDialog.setTitle(article.title)
+                alertDialog.setView(articleView)
+                alertDialog.setButton(androidx.appcompat.app.AlertDialog.BUTTON_NEUTRAL, "OK") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                alertDialog.show()
+                (alertDialog.findViewById<View>(android.R.id.message) as TextView).movementMethod = LinkMovementMethod.getInstance()
             }
 
 
