@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.domash.rssreader.network.NetworkReceiver
 
+
 class MainActivity : AppCompatActivity() {
 
 
