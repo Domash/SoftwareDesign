@@ -13,7 +13,6 @@ import com.domash.rssreader.network.NetworkReceiver
 
 class MainActivity : AppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
